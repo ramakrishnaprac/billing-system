@@ -1,0 +1,37 @@
+{
+    
+    "SAVEINVOICE":{
+        "operationDescription": "Save Invoices",
+        "operationDetails": {
+            "provider": "ELITEBILLINGSYSTEM",
+            "method": "POST",
+            "endPoint": "http://localhost:8080/api/v2/addInvoice",
+            "queryParam": [],
+            "pathParam": []
+        }
+    },
+    "SAVEEXPENSE":{
+        "operationDescription": "Save Expenses",
+        "operationDetails": {
+            "provider": "ELITEBILLINGSYSTEM",
+            "method": "POST",
+            "endPoint": "http://localhost:8080/api/v2/addExpenses",
+            "queryParam": [],
+            "pathParam": []
+        }
+    },
+    "FETCHREPORT":{
+        "operationDescription": "Fetch Report",
+        "operationDetails": {
+            "provider": "ELITEBILLINGSYSTEM",
+            "method": "GET",
+            "endPoint": "http://localhost:8080/api/v2/fetchReport",
+            "queryParam": [
+                "fromDate",
+                "toDate",
+                "month"
+            ],
+            "pathParam": []
+        }
+    }
+}

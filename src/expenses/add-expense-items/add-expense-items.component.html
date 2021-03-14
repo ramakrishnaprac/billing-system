@@ -1,0 +1,49 @@
+
+
+   <div class="modal-header pt-4  pb-0 ml-0 ">
+    <h4 class="modal-title pull-left">Expense Details</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+       <span aria-hidden="true">×</span>
+    </button>
+ </div>
+ <div class = "modal-body">
+    <div class="col-md-12">
+       <div class="row">
+          <form [formGroup] = "expenseForm" class="row g-3">
+             
+             <div class="col-md-6 my-2">
+               <label for="inputPassword4" class="form-label">Name</label>
+               <input type="text" class="form-control" formControlName = "expenseName">
+             </div>
+             <div class="col-md-6 my-2">
+                <label for="inputPassword4" class="form-label">Category</label>
+                <input type="text" class="form-control" formControlName = "category">
+              </div>
+              <div class="col-md-6 my-2">
+                <label for="inputPassword4" class="form-label">Quantity</label>
+                <input type="number" class="form-control" formControlName = "quantity">
+              </div>
+              <div class = "col-md-6 my-2">
+                <label for="inputPassword4" class="form-label">Total Amount</label>
+                <input type="number" class="form-control" formControlName = "totalAmount">
+              </div>
+              <div class="col-md-6 my-2">
+               <div class="form-group my-0">
+                  <label for="icon">Expense Date</label>
+                   <div class="mr-4">
+                       <p-calendar class="" formControlName="expenseDate" [showIcon]="true" inputId="icon">
+                       </p-calendar>
+                   </div>
+               </div>
+            </div>
+             </form>
+       </div>
+       
+       <div class = "row justify-content-end mt-4">
+         
+          <button pButton pRipple type="button" label="Save" class="mx-4" (click)="onClickSave()"></button>
+          <button pButton pRipple type="button" label="Reset" class="p-button-secondary ml-2" (click)="onReset()"></button>
+       </div>
+    </div>
+ </div>
+

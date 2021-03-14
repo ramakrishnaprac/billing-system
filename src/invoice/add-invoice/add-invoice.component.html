@@ -1,0 +1,106 @@
+<div class="container justify-content-center">
+    <div class="row col-md-12">
+        <form [formGroup]="invoiceForm">
+
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Organisation Adress</label>
+                <textarea class="form-control" formControlName="orgAdress" rows="3" cols="100"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Customer Adress</label>
+                <textarea class="form-control" formControlName="clientAdress" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Customer Mobile</label>
+                <input type="number" class="form-control" formControlName = "customerMobile">
+            </div>
+
+            <div class="col-md-12 p-0">
+                <p-table [value]="items">
+                    <ng-template pTemplate="caption">
+                        <div class="row  d-flex">
+
+                            <div class="col-md-2 mt-2">Invoice List</div>
+                            <div class="col-md-8"></div>
+                            <div class=" col justify-content-end">
+                                <button pButton pRipple type="button" label="Add Invoice" class="p-button-rounded"
+                                    (click)="OpenAddInvoiceDialoge()"></button>
+                            </div>
+
+                        </div>
+
+
+
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 3rem;"></th>
+                            <th style="width: 5rem;">Name</th>
+                            <th style="width: 5rem;">Quantity</th>
+                            <th style="width: 5rem;">Unit Price</th>
+                            <th style="width: 5rem;">Total Amount</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-element let-index = "rowIndex">
+                        <tr>
+                            <td style="width: 3rem;">
+                                <div class = "d-flex">
+                                    <div (click)="onClickEdit(element, index)">
+                                        <span  style="cursor: pointer;"><i class="pi pi-pencil"></i></span>
+                                    </div>
+                                    
+                                    <div class="ml-2" (click)="onClickdelete(element,index)">
+                                        <span  style="cursor: pointer;"><i class="pi pi-trash"></i></span>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </td>
+                            <td style="width: 5rem;">{{element.itemName}}</td>
+                            <td style="width: 5rem;">{{element.itemQuantity}}</td>
+                            <td style="width: 5rem;">{{element.unitPrice}}</td>
+                            <td style="width: 5rem;">{{element.totalAmount}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+            <div class="row d-flex col-md-12">
+                <div class="form-group my-4 col-md-6">
+                    <label for="icon">Payment Due Date</label>
+                    <div class="mr-4">
+                        <p-calendar class="" formControlName="paymentDueDate" [showIcon]="true" inputId="icon">
+                        </p-calendar>
+                    </div>
+                </div>
+
+                <div class="form-group my-4 col-md-3">
+                    <div class="my-0">
+                        <label for="inputEmail4" class="form-label">Total Amount</label>
+                        <input type="text" class="form-control"  formControlName="calculatedTotalAmount">
+                    </div>
+                </div>
+
+                <div class="form-group my-4 col-md-3">
+                    <div class="my-0">
+                        <label for="inputEmail4" class="form-label">Total Items</label>
+                        <input type="text" class="form-control"  formControlName="totalItems">
+                    </div>
+                </div>
+            </div>
+
+
+            
+        </form>
+    </div>
+
+    <div class="row col-md-12 justify-content-end mt-4">
+        <button pButton pRipple type="button" label="Calculate" class="mx-4" (click)="onClickGenerateTotalAmount()"></button>
+        <button pButton pRipple type="button" label="Generate" class="mx-4" (click)="onClickGenerate()"></button>
+        <button pButton pRipple type="button" label="Reset" class="p-button-secondary ml-2"
+            (click)="onReset()"></button>
+    </div>
+</div>
